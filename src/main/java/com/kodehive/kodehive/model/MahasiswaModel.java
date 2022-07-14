@@ -7,6 +7,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+
+@Data // automatic getter setter with Lombok
 @Entity
 @Table(name = "T_MAHASISWA") // menentukan nama tabel
 public class MahasiswaModel {
@@ -27,6 +32,8 @@ public class MahasiswaModel {
 	
 	@Column(name = "ALAMAT")
 	private String alamat;
+
+
 	
 
 }
