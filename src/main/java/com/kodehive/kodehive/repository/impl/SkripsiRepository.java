@@ -16,7 +16,7 @@ public class SkripsiRepository implements ISkripsiRepository {
 	@Autowired
 	JdbcTemplate jdbc;
 
-	// Menampilkan skripsi yang tahun pembuatannya tidak lebih tahun (?)
+	// Menampilkan skripsi yang tahun pembuatannya tidak lebih dari tahun (?)
 	@Override
 	public List<SkripsiModel> nomor1(SkripsiModel skripsi, int tahun) {
 		var query = "SELECT * FROM t_skripsi WHERE tahun <= ?";
@@ -65,6 +65,25 @@ public class SkripsiRepository implements ISkripsiRepository {
 
 		return models;
 	}
+	
+	// Hapus data dari ID-nya
+	@Override
+	public int deleteById(int id) {
+		var query = "DELETE FROM t_skripsi WHERE id = ?";
+		return jdbc.update(query, id);
+	}
 
+	// Update data dengan ID-nya
+	@Override
+	public int updateData(int id, String judul, int tahun, int nilai) {
+		var query = "UPDATE t_skripsi SET judul = ?, tahun = ?, nilai = ? WHERE id = ?";
+		return jdbc.update(query, judul, tahun, nilai, id);
+	}
+
+	@Override
+	public int updateData2(SkripsiModel skripsi, int id) {
+		var query = "UPDATE t_skripsi SET judul = ?, tahun = ?, nilai = ? WHERE id = ?";
+		return jdbc.update(query, new Object[] {skripsi.getJudul(), skripsi.getTahun(), skripsi.getNilai(), id});
+	}
 
 }

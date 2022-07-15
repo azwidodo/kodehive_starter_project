@@ -11,5 +11,7 @@ public interface ISkripsiService {
 	public List<SkripsiModel> nomor3(SkripsiModel skripsi, int tahun, int nilai);
 	public List<SkripsiModel> nomor4(SkripsiModel skripsi, int tahun);
 	public List<SkripsiModel> nomor5(SkripsiModel skripsi, String huruf);
-	
+	public int deleteById(int id);
+	public int updateData(int id, String judul, int tahun, int nilai);
+	public int updateData2(SkripsiModel skripsi, int id);
 }

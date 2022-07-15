@@ -4,10 +4,14 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -56,4 +60,21 @@ public class SkripsiController {
 		return skripsiService.nomor5(skripsi, huruf);
 	}
 	
+	@DeleteMapping("/deleteById")
+	@ResponseBody
+	public String deleteById(@RequestParam int id) {
+		return "Successfully deleted: " + skripsiService.deleteById(id);
+	}
+
+	@PutMapping("/updateData")
+	@ResponseBody
+	public String updateData(@RequestParam int id, @RequestParam String judul, @RequestParam int tahun, @RequestParam int nilai) {
+		return "Successfully updated: " + skripsiService.updateData(id, judul, tahun, nilai);
+	}
+	
+	@PutMapping("/updateData2")
+	@ResponseBody
+	public String updateData2(@RequestBody SkripsiModel skripsi, @RequestParam int id) {
+		return "Successfully updated: " + skripsiService.updateData2(skripsi, id);
+	}
 }

@@ -39,6 +39,21 @@ public class SkripsiService implements ISkripsiService {
 	public List<SkripsiModel> nomor5(SkripsiModel skripsi, String huruf) {
 		return skripsiRepository.nomor5(skripsi, huruf);
 	}
+
+	@Override
+	public int deleteById(int id) {
+		return skripsiRepository.deleteById(id);
+	}
+
+	@Override
+	public int updateData(int id, String judul, int tahun, int nilai) {
+		return skripsiRepository.updateData(id, judul, tahun, nilai);
+	}
+
+	@Override
+	public int updateData2(SkripsiModel skripsi, int id) {
+		return skripsiRepository.updateData2(skripsi, id);
+	}
 	
 	
 
