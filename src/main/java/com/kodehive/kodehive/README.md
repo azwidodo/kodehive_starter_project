@@ -1,7 +1,7 @@
 # Quiz Model
 
 ## Nomor 2
-Semua data:
+Semua data:  
 <img width="286" alt="Screenshot 2022-07-15 at 11 07 30" src="https://user-images.githubusercontent.com/61899073/179148375-32cb9843-e1f9-4293-a9c6-8905d8f92963.png">
 
 1. Menampilkan skripsi yang tahun pembuatannya tidak lebih tahun 2020 
