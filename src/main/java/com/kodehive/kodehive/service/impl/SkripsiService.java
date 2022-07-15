@@ -3,11 +3,13 @@ package com.kodehive.kodehive.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.kodehive.kodehive.model.SkripsiModel;
 import com.kodehive.kodehive.repository.ISkripsiRepository;
 import com.kodehive.kodehive.service.ISkripsiService;
 
+@Service
 public class SkripsiService implements ISkripsiService {
 	
 	@Autowired

@@ -1,10 +1,15 @@
 package com.kodehive.kodehive.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.kodehive.kodehive.model.SkripsiModel;
 import com.kodehive.kodehive.service.ISkripsiService;
@@ -16,43 +21,39 @@ public class SkripsiController {
 	@Autowired
 	ISkripsiService skripsiService;
 	
-//	@RequestMapping("/nomor1/{tahun}")
-//	public String nomor1(SkripsiModel skripsi, @PathVariable String tahun) {
-//		System.out.println("Run nomor 1");
-//		skripsiService.nomor1(skripsi, Integer.valueOf(tahun));
-//		return "Select success.";
-//	}
-	
-	@RequestMapping("/nomor1")
+	@GetMapping("/nomor1/{tahun}")
 	@ResponseBody
-	public String nomor1(SkripsiModel skripsi) {
+	public List<SkripsiModel> nomor1(SkripsiModel skripsi, @PathVariable String tahun) {
 		System.out.println("Run nomor 1");
-		skripsiService.nomor1(skripsi, 2019);
-		return "Select success.";
+		return skripsiService.nomor1(skripsi, Integer.valueOf(tahun));
 	}
 	
-	@RequestMapping("/nomor2/{kata}")
-	public String nomor2(SkripsiModel skripsi, @PathVariable String kata) {
-		skripsiService.nomor2(skripsi, kata);
-		return "Select success.";
+	@GetMapping("/nomor2/{kata}")
+	@ResponseBody
+	public List<SkripsiModel> nomor2(SkripsiModel skripsi, @PathVariable String kata) {
+		System.out.println("Run nomor 2");
+		return skripsiService.nomor2(skripsi, kata);
 	}
 	
-	@RequestMapping("/nomor3/{tahun}/{nilai}")
-	public String nomor3(SkripsiModel skripsi, @PathVariable String tahun, @PathVariable String nilai) {
-		skripsiService.nomor3(skripsi, Integer.valueOf(tahun), Integer.valueOf(nilai));
-		return "Select success.";
+	@GetMapping("/nomor3/{tahun}/{nilai}")
+	@ResponseBody
+	public List<SkripsiModel> nomor3(SkripsiModel skripsi, @PathVariable String tahun, @PathVariable String nilai) {
+		System.out.println("Run nomor 3");
+		return skripsiService.nomor3(skripsi, Integer.valueOf(tahun), Integer.valueOf(nilai));
 	}
 	
-	@RequestMapping("/nomor4/{tahun}")
-	public String nomor4(SkripsiModel skripsi, @PathVariable String tahun) {
-		skripsiService.nomor4(skripsi, Integer.valueOf(tahun));
-		return "Select success.";
+	@GetMapping("/nomor4/{tahun}")
+	@ResponseBody
+	public List<SkripsiModel> nomor4(SkripsiModel skripsi, @PathVariable String tahun) {
+		System.out.println("Run nomor 4");		
+		return skripsiService.nomor4(skripsi, Integer.valueOf(tahun));
 	}
 	
-	@RequestMapping("/nomor5/{tahun}")
-	public String nomor5(SkripsiModel skripsi, @PathVariable String huruf) {
-		skripsiService.nomor5(skripsi, huruf);
-		return "Select success.";
+	@GetMapping("/nomor5/{huruf}")
+	@ResponseBody
+	public List<SkripsiModel> nomor5(SkripsiModel skripsi, @PathVariable String huruf) {
+		System.out.println("Run nomor 5");	
+		return skripsiService.nomor5(skripsi, huruf);
 	}
 	
 }
