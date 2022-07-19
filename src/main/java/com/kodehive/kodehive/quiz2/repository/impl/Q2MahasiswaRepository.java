@@ -22,6 +22,16 @@ public class Q2MahasiswaRepository implements IQ2MahasiswaRepository {
 	
 		return jdbc.update(query, new Object[] {model.getNama(), model.getJurusan()});
 	}
+	
+	@Override
+	public List<Q2MahasiswaModel> readMahasiswa(Q2MahasiswaModel model) {
+		var query = "SELECT nama, jurusan FROM q2_mahasiswa";
+		
+		List<Q2MahasiswaModel> models = jdbc.query(query, new BeanPropertyRowMapper<Q2MahasiswaModel>(Q2MahasiswaModel.class));
+		
+		return models;
+	}
+	
 
 	@Override
 	public List<Q2MahasiswaModel> readById(Q2MahasiswaModel model, int id) {

@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.kodehive.kodehive.quiz2.model.Q2JudulSkripsiModel;
+import com.kodehive.kodehive.quiz2.model.Q2SkripsiMahasiswaByKategori;
+import com.kodehive.kodehive.quiz2.model.Q2SkripsiMahasiswa;
 import com.kodehive.kodehive.quiz2.repository.IQ2JudulSkripsiRepository;
 import com.kodehive.kodehive.quiz2.service.IQ2JudulSkripsiService;
 
@@ -21,13 +23,13 @@ public class Q2JudulSkripsiService implements IQ2JudulSkripsiService {
 	}
 
 	@Override
-	public List<Q2JudulSkripsiModel> readSkripsiMahasiswa(Q2JudulSkripsiModel judul) {
+	public List<Q2SkripsiMahasiswa> readSkripsiMahasiswa(Q2SkripsiMahasiswa judul) {
 		return judulRepo.readSkripsiMahasiswa(judul);
 	}
 
 	@Override
-	public List<Q2JudulSkripsiModel> readSkripsiMahasiswaByKategori(Q2JudulSkripsiModel judul, int kategori_id) {
-		return judulRepo.readSkripsiMahasiswaByKategori(judul, kategori_id);
+	public List<Q2SkripsiMahasiswaByKategori> readSkripsiMahasiswaByKategori(Q2SkripsiMahasiswaByKategori judul, String kategori) {
+		return judulRepo.readSkripsiMahasiswaByKategori(judul, kategori);
 	}
 
 }
