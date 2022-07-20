@@ -1,0 +1,128 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Baru</title>
+</head>
+<body>
+
+    <h1>Buat Account Baru</h1>
+    <hr>
+    <p>For international applicants, please contact our International Office.</p>
+
+    
+    <form>
+        <h2>Login</h2>
+        <hr>
+    
+        <table>
+            <tr>
+                <td>Username</td>
+                <td>
+                    <label id="username-text"></label><br>
+                    <input type="text" name="username" id="username" class="wajib" onkeyup="validateField('username')">
+                </td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td>
+                    <label id="password-text"></label><br>
+                    <input type="text" name="password" id="password" class="wajib" onkeyup="validateField('password')">
+                </td>
+            </tr>
+            <tr>
+                <td>Ulangi password</td>
+                <td>
+                    <label id="upassword-text"></label><br>
+                    <input type="text" name="upassword" id="upassword" class="wajib" onkeyup="validateField('upassword')">
+                </td>
+            </tr>
+        </table>
+    
+        <h2>Identitas</h2>
+        <hr>
+    
+        <table>
+            <tr>
+                <td>Nama sesuai identitas</td>
+                <td>
+                    <label id="namaIdn-text" style="color: red;">Nama sesuai identitas harus diisi</label><br>
+                    <input type="text" name="namaIdn" id="namaIdn" class="wajib" onkeyup="validateField('namaIdn')">
+                </td>
+            </tr>
+            <tr>
+                <td>Nama sesuai ijazah</td>
+                <td>
+                    <label id="namaIjz-text" style="color: red;">Nama sesuai ijazah harus diisi</label><br>
+                    <input type="text" name="namaIjz" id="namaIjz" class="wajib" onkeyup="validateField('namaIjz')">
+                </td>
+            </tr>
+            <tr>
+                <td>Jenis Identitas</td>
+                <td>
+                    <label id="idn-text" style="color: red;">Harus memilih kategori</label><br>
+                    <select name="idn" id="idn" onchange="validateCategory('idn')">
+                        <option value="pilih">-- PILIH --</option>
+                        <option value="idn1">Identitas 1</option>
+                        <option value="idn2">Identitas 2</option>
+                        <option value="idn3">Identitas 3</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Nomor Identitas</td>
+                <td>
+                    <label id="nomorIdn-text"></label><br>
+                    <input type="text" name="nomorIdn" id="nomorIdn" class="wajib" onkeyup="validateField('nomorIdn')">
+                </td>
+            </tr>
+            <tr>
+                <td>Kewarganegaraan</td>
+                <td>
+                    <label id="kwn-text" style="color: red;">Harus memilih kategori</label><br>
+                    <select name="kwn" id="kwn" onchange="validateCategory('kwn')">
+                        <option value="pilih">-- PILIH --</option>
+                        <option value="kwn1">Kewarganegaraan 1</option>
+                        <option value="kwn2">Kewarganegaraan 2</option>
+                        <option value="kwn3">Kewarganegaraan 3</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+    </form>
+    
+
+    <script>
+
+        var wajib_list = document.getElementsByClassName("wajib")
+        var wajib = ["username", "password", "upassword", "nomorIdn"]
+
+        for (i = 0; i < wajib.length; i++) {
+            var field = document.getElementById(wajib[i])
+
+            document.getElementById(wajib[i] + "-text").innerHTML = "Field ini harus diisi"
+            document.getElementById(wajib[i] + "-text").style = "color: red"
+        }
+
+        function validateField(id) {
+            if (document.getElementById(id).value === "") {
+                document.getElementById(id + "-text").style.visibility = "visible"
+            }
+            else {
+                document.getElementById(id + "-text").style.visibility = "hidden"
+            }
+        }
+
+        function validateCategory(id) {
+            if (document.getElementById(id).value === "pilih") {
+                document.getElementById(id + "-text").style.visibility = "visible"
+            }
+            else {
+                document.getElementById(id + "-text").style.visibility = "hidden"
+            }
+        }
+
+    </script>
+</body>
+</html>
