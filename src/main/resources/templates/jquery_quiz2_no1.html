@@ -39,30 +39,52 @@
             opacity: 0;
         }
 
-        div {
+        .container {
+            background-color: #e1e7f4;
+            width: 40%;
+            height: fit-content;
+            margin-top: 20px;
+            padding: 5px;
+        }
+
+        .inside-container {
             width: 100%;
             display: flex;
-            margin: auto;
+            margin-top: 5pt;
             margin-bottom: 5pt;
             justify-content: center;
+        }
+
+        button {
+            width: 130px;
         }
     </style>
 </head>
 <body>
 
-    <div style="margin-top: 10pt;">
-        <button id="surat-btn" class="btn btn-primary" type="button">Animasi Surat</button>
+    <div class="inside-container">
+        <select name="warna" id="warna-select">
+            <optgroup label="Pilih warna background">
+                <option value="hijau">Hijau</option>
+                <option value="hitam">Hitam</option>
+                <option value="kuning">Kuning</option>
+            </optgroup>
+        </select>
     </div>
 
-    <div>
-        <div id="triangle-1"></div>
-    </div>
-
-    <div>
-        <div id="triangle-2"></div><br>
-    </div>
-    <div>
-        <div id="triangle-3"></div>
+    <div class="container">
+        <div class="inside-container">
+            <button id="surat-btn" class="btn btn-primary" type="button">Animasi Surat</button>
+        </div>  
+        <div class="inside-container">
+            <div id="triangle-1"></div>
+        </div>
+        <div class="inside-container">
+            <div id="triangle-2"></div>
+        </div>
+        <div class="inside-container">
+            <div id="triangle-3"></div>
+        </div>
     </div>
     
     <script>
@@ -71,6 +93,18 @@
             $("#triangle-2").css('opacity', 0).delay(150).slideDown('slow').animate({opacity: 1}, 2000)
             $("#triangle-3").css('opacity', 0).delay(225).slideDown('slow').animate({opacity: 1}, 3000)
         })
+
+        $("#warna-select").on("change", function() {
+            var warna = $("#warna-select").val()
+
+            if (warna == "hijau") {
+                $(".container").css("background-color", "#78fe0a")
+            } else if (warna == "hitam") {
+                $(".container").css("background-color", "#000000")
+            } else {
+                $(".container").css("background-color", "#f1ff17")
+            }
+        })      
     </script>
     
 </body>
