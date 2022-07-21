@@ -1,0 +1,33 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn JQuery</title>
+    <script src="../lib/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1 id="head-text" title="Hello JQuery">JQuery</h1>
+
+    <div id="div-1"></div>
+
+    <button id="remove-btn">Remove head</button>
+
+    <script>
+        $("#head-text").attr("title", "the title has changed")
+        var headTextTitle = $("#head-text").attr("title")
+
+        // use document.ready to load html fully before executing script
+        $(document).ready(
+            $("#head-text").text("Welcome to JQuery")
+        )
+
+        $("#div-1").attr("style", "background-color: #ff0000")
+        $("#div-1").text(headTextTitle).css("color", "#00ff00")
+
+        $("#remove-btn").click(function() {
+            $("h1").removeClass("head-text")
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz 1 No 5</title>
+    <script src="../lib/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <hr>
+
+    <p id="teks" style="text-align: center;">Target 1 Paragraf</p>
+
+    <div style="width: 100%; display: flex; margin: auto; justify-content: center;">
+        <button id="beri-btn" >Beri warna</button>
+        <button id="hapus-btn" >Hapus warna</button>
+    </div>
+    
+    <script>
+        $("#beri-btn").click(function() {
+            $("#teks").attr("style", "text-align: center; color: red;")
+        })
+        $("#hapus-btn").click(function() {
+            $("#teks").attr("style", "text-align: center; color: black;")
+        })
+    </script>
+</body>
+</html>

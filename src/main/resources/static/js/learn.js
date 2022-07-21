@@ -41,3 +41,10 @@ console.log(typeof (grand_total))
 // }
 
 // myHobby.func()
+
+const person = {
+    nama: "sumagusta",
+    pet: { nama: "suma" }
+}
+
+console.log(person["nama"])

@@ -17,6 +17,11 @@ public class MahasiswaController {
 		return "/account";
 	}
 
+	@RequestMapping("/jquery")
+	public String jquery() {
+		return "/jquery_quiz1_no5";
+	}
+
 	@RequestMapping("/karyawan")
 	public String viewKaryawan() {
 		return "/company/divisi/karyawan";
