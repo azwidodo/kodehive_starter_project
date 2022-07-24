@@ -48,3 +48,12 @@ const person = {
 }
 
 console.log(person["nama"])
+
+function foo1() {
+    return
+    {
+        salam: "Hai"
+    }
+}
+
+console.log(foo1())

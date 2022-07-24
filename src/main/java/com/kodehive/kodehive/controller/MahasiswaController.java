@@ -19,7 +19,7 @@ public class MahasiswaController {
 
 	@RequestMapping("/jquery")
 	public String jquery() {
-		return "/jquery_quiz2_no1";
+		return "/jquery_quiz2_no2";
 	}
 
 	@RequestMapping("/karyawan")
