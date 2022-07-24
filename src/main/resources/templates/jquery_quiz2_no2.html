@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -58,12 +59,16 @@
         button {
             width: 130px;
         }
+        
+        #teks {
+            visibility: hidden;
+        }
     </style>
 </head>
 <body>
 
     <div class="inside-container">
-        <select name="warna" id="warna-select">
+        <select name="warna" id="warna-select" class="form-select" style="width: 130px;">
             <optgroup label="Pilih warna background">
                 <option value="hijau">Hijau</option>
                 <option value="hitam">Hitam</option>
@@ -72,9 +77,13 @@
         </select>
     </div>
 
-    <div id="text-container" class="inside-container">
-       <h1 id="teks"></h1>
+    <div id="text-container" class="inside-container" style="margin-bottom: 0px;">
+       <p id="teks" style="font-size: 20pt;">Saya telah memilih background warna</p>
     </div>
+    
+    <div class="inside-container" style="margin-top: 0px;">
+        <h1 id="warna-teks"></h1>
+     </div>
 
     <div class="container">
         <div class="inside-container">
@@ -92,7 +101,7 @@
     </div>
 
     <div class="inside-container">
-        <input id="warna-input" type="text">
+        <input id="warna-input" type="text" class="form-control" style="width: 300px;">
     </div>
 
    <div class="inside-container">
@@ -129,14 +138,15 @@
         
         $("#send-btn").on("click", function() {
             var input = $("#warna-input").val().toLowerCase()
-            var string = "Saya telah memilih background warna "
+            
+            $("#teks").css("visibility", "visible")
 
             if (input == "hijau") {
-                $("#teks").text(string + "hijau.")
+                $("#warna-teks").text("hijau")
             } else if (input == "hitam") {
-                $("#teks").text(string + "hitam.")
+                $("#warna-teks").text("hitam")
             } else {
-                $("#teks").text(string + "kuning.")
+                $("#warna-teks").text("kuning")
             }
         })
     </script>

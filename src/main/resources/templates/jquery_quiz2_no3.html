@@ -42,7 +42,7 @@
 
         .container {
             background-color: #e1e7f4;
-            width: 40%;
+            width: 400px;
             height: fit-content;
             margin-top: 20px;
             padding: 5px;
@@ -59,6 +59,10 @@
         button {
             width: 130px;
         }
+        
+        #teks {
+            visibility: hidden;
+        }
     </style>
 </head>
 <body>
@@ -72,6 +76,14 @@
             </optgroup>
         </select>
     </div>
+
+    <div id="text-container" class="inside-container" style="margin-bottom: 0px;">
+       <p id="teks" style="font-size: 20pt;">Saya telah memilih background warna</p>
+    </div>
+    
+    <div id="warna-teks-div" class="inside-container" style="margin-top: 0px;">
+        <h1 id="warna-teks"></h1>
+     </div>
 
     <div class="container">
         <div class="inside-container">
@@ -87,7 +99,21 @@
             <div id="triangle-3"></div>
         </div>
     </div>
+
+    <div class="inside-container">
+        <input id="warna-input" type="text" class="form-control" style="width: 300px;">
+    </div>
+
+   <div class="inside-container">
+        <button id="send-btn" class="btn btn-primary" type="submit">Send</button>
+   </div>
+
     
+    <!-- 
+        
+        SCRIPT
+    
+    -->
     <script>
         $("#surat-btn").click(function() {
             $("#triangle-1").css('opacity', 0).delay(75).slideDown('slow').animate({opacity: 1}, 1000)
@@ -100,12 +126,50 @@
 
             if (warna == "hijau") {
                 $(".container").css("background-color", "#78fe0a")
+                $("#warna-input").val("Hijau")
             } else if (warna == "hitam") {
                 $(".container").css("background-color", "#000000")
+                $("#warna-input").val("Hitam")
             } else {
                 $(".container").css("background-color", "#f1ff17")
+                $("#warna-input").val("Kuning")
             }
-        })      
+        })
+        
+        $("#send-btn").on("click", function() {
+            var input = $("#warna-input").val().toLowerCase()
+            
+            if (input != "") {
+                $("#teks").css("visibility", "visible")
+
+                if (input == "hijau") {
+                    $("#warna-teks").text("hijau")
+                } else if (input == "hitam") {
+                    $("#warna-teks").text("hitam")
+                } else if (input == "kuning") {
+                    $("#warna-teks").text("kuning")
+                }
+            }
+        })
+        
+        $("#warna-teks").hover(function() {
+            var input = $("#warna-input").val().toLowerCase()
+            var warna = ""
+            
+            if (input == "hijau") {
+                warna = "green"
+            } else if (input == "hitam") {
+                warna = "black"
+            } else if (input == "kuning") {
+                warna = "yellow"
+            } else {
+                warna = "white"
+            }
+                
+            $(this).css("background-color", warna)
+        }, function() {
+            $(this).css("background-color", "white")
+        })
     </script>
     
 </body>
