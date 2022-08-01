@@ -14,4 +14,7 @@ public interface ISkripsiRepository {
 	public int deleteById(int id);
 	public int updateData(int id, String judul, int tahun, int nilai);
 	public int updateData2(SkripsiModel skripsi, int id);
+
+	public List<SkripsiModel> readAll(SkripsiModel skripsi);
+
 }

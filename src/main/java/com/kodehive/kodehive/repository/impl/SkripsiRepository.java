@@ -86,4 +86,10 @@ public class SkripsiRepository implements ISkripsiRepository {
 		return jdbc.update(query, new Object[] {skripsi.getJudul(), skripsi.getTahun(), skripsi.getNilai(), id});
 	}
 
+	@Override
+	public List<SkripsiModel> readAll(SkripsiModel skripsi) {
+		var query = "SELECT * FROM t_skripsi";
+		return jdbc.query(query, new BeanPropertyRowMapper<SkripsiModel>(SkripsiModel.class));
+	}
+
 }

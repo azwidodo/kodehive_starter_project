@@ -7,7 +7,6 @@ public class MahasiswaService implements IMahasiswaService{
 
 	@Override
 	public void insert(MahasiswaModel model) {
-		// TODO Auto-generated method stub
 		
 	}
 
