@@ -29,14 +29,14 @@ public class Q2JudulSkripsiRepository implements IQ2JudulSkripsiRepository {
 
 	@Override
 	public List<Q2SkripsiMahasiswa> readSkripsiMahasiswa(Q2SkripsiMahasiswa judul) {
-		var query = "SELECT m.nama, m.jurusan, j.judul FROM q2_judul_skripsi j JOIN q2_mahasiswa m ON j.mahasiswa_id = m.id";
+		var query = "SELECT m.id, m.nama, m.jurusan, j.judul FROM q2_judul_skripsi j JOIN q2_mahasiswa m ON j.mahasiswa_id = m.id";
 		
 		return jdbc.query(query, new BeanPropertyRowMapper<Q2SkripsiMahasiswa>(Q2SkripsiMahasiswa.class));
 	}
 
 	@Override
 	public List<Q2SkripsiMahasiswaByKategori> readSkripsiMahasiswaByKategori(Q2SkripsiMahasiswaByKategori judul, String kategori) {
-		var query = "SELECT m.nama, m.jurusan, j.judul, k.kategori FROM q2_judul_skripsi j JOIN q2_mahasiswa m ON j.mahasiswa_id = m.id"
+		var query = "SELECT m.id, m.nama, m.jurusan, j.judul, k.kategori FROM q2_judul_skripsi j JOIN q2_mahasiswa m ON j.mahasiswa_id = m.id"
 				+ " JOIN q2_kategori_skripsi k ON j.kategori_id = k.id WHERE k.kategori = ?";
 		
 		return jdbc.query(query, new BeanPropertyRowMapper<Q2SkripsiMahasiswaByKategori>(Q2SkripsiMahasiswaByKategori.class), kategori);
