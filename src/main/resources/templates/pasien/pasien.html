@@ -5,21 +5,46 @@
 <title>Pasien</title>
 </head>
 <body>
-
-<label for="nomor">Nomor Pasien</label>
-<input id="nomor" size="20">
-
-<br>
-
-<label for="nama">Nama Pasien</label>
-<input id="nama" size="20">
-
-<br>
-
-<label for="gender">Gender Pasien</label>
-<input id="gender" type="checkbox"><label>Pria</label>
-<input id="gender" type="checkbox"><label>Wanita</label>
-
+    
+    <table>
+        <tr>
+            <td><label for="nomor">Nomor Pasien</label></td>
+            <td><input id="nomor" type="number" size="20"></td>
+        </tr>
+        <tr>
+            <td><label for="nama">Nama Pasien</label></td>
+            <td><input id="nama" size="20"></td>
+        </tr>
+        <tr>
+            <td><label for="gender">Gender Pasien</label></td>
+            <td><input id="gender" type="radio"><label>Pria</label>
+                <input id="gender" type="radio"><label>Wanita</label>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="kategori">Kategori Pasien</label></td>
+            <td><select name="kategori" id="kategori">
+                <option value="bpjs">BPJS</option>
+                <option value="asuransi">Asuransi</option>
+                <option value="pribadi">Pribadi</option>
+            </select>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="biaya">Biaya Pasien</label></td>
+            <td><input id="biaya" type="number" size="20"></td>
+        </tr>
+        <tr>
+            <td><label for="birthday">Tanggal lahir</label></td>
+            <td><input id="birthday" type="date" size="20"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><button>Submit</button>
+                <button>Reset</button>
+            </td>
+        </tr>
+    </table>
 
 </body>
 </html>

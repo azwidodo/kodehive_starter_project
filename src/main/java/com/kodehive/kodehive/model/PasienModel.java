@@ -8,6 +8,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.Data;
+
+@Data
 @Entity
 @Table(name = "t_pasien")
 public class PasienModel {
@@ -19,6 +22,6 @@ public class PasienModel {
 	private String gender;
 	private String kategori;
 	private int biaya;
-	private Date tglLahir;
+	private Date tanggalLahir;
 
 }
